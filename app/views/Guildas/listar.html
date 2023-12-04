@@ -10,6 +10,7 @@
             <tr id="table_header">
                 <th>nome</th>
                 <th>historia</th>
+                <th>entrar</th>
                 <th>Editar</th>
                 <th>Remover</th>
             </tr>
@@ -19,7 +20,7 @@
             <tr>
                 <td>${g?.nome}</td>
                 <td>${g?.historia}</td>
-                <td><a href="@{Guildas.entrar()}">entrar</a></td>
+                <td><a href="@{Usuarios.escolherGuilda(g.id)}">entrar</a></td>
                 <td><a href="@{Guildas.editar(g.id)}">editar</a></td>
                 <td><a href="@{Guildas.remover(g.id)}">remover</a></td>
             </tr>

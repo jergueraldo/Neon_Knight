@@ -8,5 +8,5 @@ import play.db.jpa.Model;
 @Entity
 public class Guilda extends Model {
     @Required
-    public String nome, hitoria, emblema;
+    public String nome, historia, emblema;
 }

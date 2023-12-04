@@ -2,6 +2,7 @@ package controllers;
 
 import java.util.List;
 
+import models.Guilda;
 import models.Status;
 import models.Usuario;
 import play.cache.Cache;
@@ -15,12 +16,15 @@ public class Usuarios extends Controller {
     public static void form() {
         Usuario user = (Usuario) Cache.get("user");
         Cache.clear();
-        render(user);
+
+        List<Guilda> guildas = Guilda.findAll();
+        render(user, guildas);
     }
 
     public static void home() {
         render();
     }
+
 
     public static void salvar(@Valid Usuario u) {
 

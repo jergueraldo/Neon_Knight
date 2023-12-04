@@ -35,6 +35,18 @@
                                     <label class="form-label" for="form3Example4cg">Senha</label>
                                 </div>
 
+                                #{select 'u.guilda.id',
+                                value:u?.guilda?.id}
+
+                                #{list items:guildas, as:'g'}
+
+                                #{option g.id}
+                                ${g.nome}
+                                #{/option}
+
+                                #{/list}
+
+                                #{/select}
 
                                 <div class="d-flex justify-content-center">
                                     <button type="submit"
