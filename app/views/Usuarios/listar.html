@@ -1,0 +1,35 @@
+#{extends 'main.html' /}
+#{set title:'Listar' /}
+
+<div class="table_box">
+    <table class="listagem_table">
+        <div class="tableTop_div">
+            <h1>Listagem</h1>
+        </div>
+        <thead>
+            <tr id="table_header">
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Guilda</th>
+                <th>Editar</th>
+                <th>Remover</th>
+            </tr>
+        </thead>
+        #{list items: lista, as: "u"}
+        <tbody>
+            <tr>
+                <td>${u?.nome}</td>
+                <td>${u?.email}</td>
+                <td>${u?.guilda?.nome}</td>
+                <td><a href="@{Usuarios.editar(u.id)}">editar</a></td>
+                <td><a href="@{Usuarios.remover(u.id)}">remover</a></td>
+            </tr>
+        </tbody>
+        #{/list}
+        #{else}
+        <tr>
+            <td colspan="?"><a href="@{Usuarios.form()}">Registrar novo?</td>
+            #{/else}
+
+    </table>
+</div>

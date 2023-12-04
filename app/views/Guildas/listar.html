@@ -1,0 +1,34 @@
+#{extends 'main.html' /}
+#{set title:'Listar' /}
+
+<div class="table_box">
+    <table class="listagem_table">
+        <div class="tableTop_div">
+            <h1>Listagem</h1>
+        </div>
+        <thead>
+            <tr id="table_header">
+                <th>nome</th>
+                <th>historia</th>
+                <th>Editar</th>
+                <th>Remover</th>
+            </tr>
+        </thead>
+        #{list items: lista, as: "g"}
+        <tbody>
+            <tr>
+                <td>${g?.nome}</td>
+                <td>${g?.historia}</td>
+                <td><a href="@{Guildas.entrar()}">entrar</a></td>
+                <td><a href="@{Guildas.editar(g.id)}">editar</a></td>
+                <td><a href="@{Guildas.remover(g.id)}">remover</a></td>
+            </tr>
+        </tbody>
+        #{/list}
+        #{else}
+        <tr>
+            <td colspan="?"><a href="@{Guildas.form()}">Registrar novo?</td>
+            #{/else}
+
+    </table>
+</div>
