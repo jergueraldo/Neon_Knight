@@ -8,6 +8,9 @@ import models.Usuario;
 import play.jobs.Job;
 import play.jobs.OnApplicationStart;
 
+
+// Não sei por que parou de funcionar, tive que improvisar
+
 @OnApplicationStart
 public class Inicializador extends Job {
 

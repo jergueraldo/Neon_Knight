@@ -14,27 +14,28 @@
 
                                 <input type="hidden" name="u.id">
 
-                                #{error 'user.nome' /}
+                                
                                 <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example1cg">Nome</label>  <span class="red">#{error 'u.nome' /}</span>
                                     <input type="text" id="form3Example1cg" class="form-control form-control-lg"
                                         name="u.nome" value="${u?.nome}" />
-                                    <label class="form-label" for="form3Example1cg">Nome</label>
                                 </div>
 
-                                #{error 'user.email' /}
+                                
                                 <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example3cg">Email</label> <span class="red"> #{error 'u.email' /}</span>
                                     <input type="email" id="form3Example3cg" class="form-control form-control-lg"
                                         name="u.email" value="${u?.email}" />
-                                    <label class="form-label" for="form3Example3cg">Email</label>
                                 </div>
 
-                                #{error 'user.senha' /}
+                                
                                 <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example4cg">Senha</label> <span class="red"> #{error 'u.senha' /}</span>
                                     <input type="password" id="form3Example4cg" class="form-control form-control-lg"
                                         name="u.senha" value="${u?.senha}" />
-                                    <label class="form-label" for="form3Example4cg">Senha</label>
                                 </div>
 
+                                <label>Guilda</label>
                                 #{select 'u.guilda.id',
                                 value:u?.guilda?.id}
 
@@ -47,6 +48,8 @@
                                 #{/list}
 
                                 #{/select}
+
+                                <br><br>
 
                                 <div class="d-flex justify-content-center">
                                     <button type="submit"

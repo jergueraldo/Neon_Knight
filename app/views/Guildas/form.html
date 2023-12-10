@@ -15,18 +15,18 @@
 
                                 <input type="hidden" name="g.id">
 
-                                #{error 'guilda.nome' /}
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg"
-                                        name="g.nome" value="${u?.nome}" />
-                                    <label class="form-label" for="form3Example1cg">Nome</label>
+                                    <label class="form-label" for="form3Example1cg">Nome</label><span class="red">
+                                        #{error 'g.nome' /}<span>
+                                            <input type="text" id="form3Example1cg" class="form-control form-control-lg"
+                                                name="g.nome" value="${u?.nome}" />
                                 </div>
 
-                                #{error 'guilda.historia' /}
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg"
-                                        name="g.historia" value="${u?.historia}" />
-                                    <label class="form-label" for="form3Example1cg">historia</label>
+                                    <label class="form-label" for="form3Example1cg">historia</label> <span
+                                        class="red">#{error 'g.historia' /}<span>
+                                            <input type="text" id="form3Example1cg" class="form-control form-control-lg"
+                                                name="g.historia" value="${u?.historia}" />
                                 </div>
 
                                 <div class="d-flex justify-content-center">

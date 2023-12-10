@@ -13,9 +13,9 @@ import play.mvc.With;
 public class Guildas extends Controller {
 
     public static void form() {
-        Guilda guilda = (Guilda) Cache.get("guilda");
+        Guilda g = (Guilda) Cache.get("guilda");
         Cache.clear();
-        render(guilda);
+        render(g);
     }
 
     public static void salvar(@Valid Guilda g) {

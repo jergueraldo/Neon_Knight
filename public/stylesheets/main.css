@@ -127,6 +127,7 @@
         justify-content: center;
         align-items: center;
         grid-area: top;
+        margin-bottom: 10em;
     }
     
     .listagem_table {
@@ -464,3 +465,7 @@
         background-color: #0000ff60;
        transform: scale(1.1);
     }
+
+.red{
+    color: red;
+}

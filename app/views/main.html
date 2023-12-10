@@ -61,10 +61,10 @@
                                                 <li><a href="@{Usuarios.home}">Home</a></li>
                                                 <li><a href="#">Guildas</a>
                                                         <ul class="sub-menu">
-                                                                <li><a href="#">sla</a></li>
+                                                                <li><a href="@{Guildas.form}">Criar nova</a></li>
+                                                                <li><a href="@{Guildas.listar}">Listar</a></li>
                                                         </ul>
                                                 </li>
-                                                <li><a href="#">Login</a></li>
                                                 <li><a href="@{Logins.logout}">sair</a></li>
                                         </ul>
                                         #{/if}
@@ -85,26 +85,28 @@
         <!-- Hero section -->
         <section class="hero-section overflow-hidden">
                 #{if flash.success}
-                   <figure class="notification-success">
-                       <div class="success-body">
-                           <img src="/public/images/notifications-outline.svg" alt="check icon" title="Success" class="success-icon">
-                           ${flash.success}<ion-icon name="alert-outline"></ion-icon>
-                       </div>
-                       <div class="success-progress"></div>
-                
-                   </figure>
-                   #{/if}
-                
-                   #{if flash.error}
-                   <figure class="notification-error">
-                       <div class="error-body">
-                           <img src="/public/images/notifications-outline.svg" alt="check icon" title="error" class="error-icon">
-                           ${flash.error}<ion-icon name="alert-outline"></ion-icon>
-                       </div>
-                       <div class="error-progress"></div>
-                
-                   </figure>
-                   #{/if}
+                <figure class="notification-success">
+                        <div class="success-body">
+                                <img src="/public/images/notifications-outline.svg" alt="check icon" title="Success"
+                                        class="success-icon">
+                                ${flash.success}<ion-icon name="alert-outline"></ion-icon>
+                        </div>
+                        <div class="success-progress"></div>
+
+                </figure>
+                #{/if}
+
+                #{if flash.error}
+                <figure class="notification-error">
+                        <div class="error-body">
+                                <img src="/public/images/notifications-outline.svg" alt="check icon" title="error"
+                                        class="error-icon">
+                                ${flash.error}<ion-icon name="alert-outline"></ion-icon>
+                        </div>
+                        <div class="error-progress"></div>
+
+                </figure>
+                #{/if}
                 #{doLayout /}
         </section>
         <!-- Hero section end-->
