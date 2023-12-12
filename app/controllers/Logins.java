@@ -13,14 +13,7 @@ public class Logins extends Controller {
     }
 
     private static void criarTeste() {
-        if (Usuario.count() == 0) {
-            Usuario adm = new Usuario();
-            adm.nome = "adm";
-            adm.email = "adm@adm.com";
-            adm.senha = "12345";
-            adm.save();
-        }
-
+        Guilda guildaUser = null;
         if (Guilda.count() == 0) {
             Guilda gui = new Guilda();
             gui.nome = "blue";
@@ -37,8 +30,18 @@ public class Logins extends Controller {
             gui3.historia = "sla3";
             gui3.save();
 
+            guildaUser = gui;
+
         }
 
+        if (Usuario.count() == 0) {
+            Usuario adm = new Usuario();
+            adm.nome = "adm";
+            adm.email = "adm@adm.com";
+            adm.senha = "12345";
+            adm.guilda = guildaUser;
+            adm.save();
+        }
         Usuarios.home();
     }
 
@@ -55,6 +58,7 @@ public class Logins extends Controller {
 
         session.put("userName", user.nome);
         session.put("userEmail", user.email);
+        session.put("userGuilda", user.guilda.nome);
         session.put("user", user);
         flash.success("Bem vindo " + user.nome);
         Usuarios.home();

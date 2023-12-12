@@ -14,7 +14,7 @@ import play.mvc.With;
 public class Usuarios extends Controller {
 
     public static void form() {
-        Usuario u = (Usuario)Cache.get("user");
+        Usuario u = (Usuario) Cache.get("user");
         Cache.clear();
 
         List<Guilda> guildas = Guilda.findAll();
@@ -25,6 +25,9 @@ public class Usuarios extends Controller {
         render();
     }
 
+    public static void ficha() {
+        render();
+    }
 
     public static void salvar(@Valid Usuario u) {
 
