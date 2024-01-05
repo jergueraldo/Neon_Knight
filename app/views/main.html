@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 
 <!DOCTYPE html>
 <html lang="zxx">
@@ -62,10 +61,11 @@
                                         #{if session["userName"] }
                                         <ul class="main-menu primary-menu">
                                                 <li><a href="@{Usuarios.home}">Home</a></li>
-                                                <li><a href="#">Guildas</a>
+                                                <li><a href="@{Usuarios.ficha}">Perfil</a></li>
+                                                <li><a href="#">Guilda</a>
                                                         <ul class="sub-menu">
-                                                                <li><a href="@{Guildas.form}">Criar nova</a></li>
-                                                                <li><a href="@{Guildas.listar}">Listar</a></li>
+                                                                <li><a href="@{Guildas.form}">Criar sua guilda</a></li>
+                                                                <li><a href="@{Guildas.listar}">Guildas</a></li>
                                                         </ul>
                                                 </li>
                                                 <li><a href="@{Logins.logout}">sair</a></li>

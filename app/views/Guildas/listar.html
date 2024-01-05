@@ -1,34 +1,96 @@
 #{extends 'main.html' /}
 #{set title:'Listar' /}
 
+<style>
+    a {
+        color: #FFF;
+    }
 
-<div class="table_box">
-    <table class="listagem_table">
-        <div class="tableTop_div">
-            <h1>Listagem</h1>
+    a:hover {
+        color: rgba(205, 204, 204, 0.648);
+        text-decoration: none;
+    }
+
+    .border {
+        border: 0.5px solid;
+    }
+
+    .bg-c-lite-green {
+        transform: scale(0.9);
+    }
+</style>
+
+#{list items: guildas , as:'g'}
+
+<div class="container">
+    <div class="main-body">
+
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="/public/images/download.jpeg" alt="Admin" class="rounded-circle" width="150">
+                            <div class="mt-3">
+                                <h4>${g?.nome}</h4>
+                                <p class="text-secondary mb-1">${g?.matriz}</p><br>
+                                <button class="btn btn-success"><a
+                                        href="@{Guildas.entrarNaGuilda(g.id)}">Entrar</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="mb-0">Membros</h5><br>
+                        <div class="row">
+                            #{list items:g?.usuarios, as:"p"}
+                            <div class="col-sm-3 ">
+                                <h6 class="mb-0">Player</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <button class="btn bg-c-lite-green"><a href="@{Usuarios.detalhar(p.id)}">
+                                        ${p?.nome} :
+                                        ${p?.classe}</a></button>
+                            </div>
+                            #{/list}
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <a class="btn btn-info " target="__blank"
+                                    href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row gutters-sm">
+                    <div class="col-sm-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h6 class="d-flex align-items-center mb-3"><i
+                                        class="material-icons text-info mr-2">Historia</i></h6>
+                                <p>"${g?.historia}"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h6 class="d-flex align-items-center mb-3"><i
+                                        class="material-icons text-info mr-2">Lore</i></h6>
+                                <p>"${g?.lore}"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <thead>
-            <tr id="table_header">
-                <th>nome</th>
-                <th>historia</th>
-                <th>Editar</th>
-                <th>Remover</th>
-            </tr>
-        </thead>
-        #{list items: lista, as: "g"}
-        <tbody>
-            <tr>
-                <td>${g?.nome}</td>
-                <td>${g?.historia}</td>
-                <td><a href="@{Guildas.editar(g.id)}">editar</a></td>
-                <td><a href="@{Guildas.remover(g.id)}">remover</a></td>
-            </tr>
-        </tbody>
-        #{/list}
-        #{else}
-        <tr>
-            <td colspan="5"><a href="@{Guildas.form()}">Registrar novo?</td>
-            #{/else}
-
-    </table>
-</div>
+    </div>
+</div><br>
+<hr>
+<br>
+#{/list}

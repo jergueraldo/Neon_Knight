@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.Collections;
 import java.util.List;
 
 import models.Guilda;
@@ -32,14 +33,48 @@ public class Guildas extends Controller {
         Usuarios.form();
     }
 
+    public static void entrarNaGuilda(long id) {
+        Guilda g = Guilda.findById(id);
+        Usuario u = Usuario.find("nome = ?1", session.get("userName")).first();
+
+        if (u.guilda != null) {
+            flash.error("você já possuí uma guilda, acesse editar na aba de perfil para sair da guilda");
+            Usuarios.ficha();
+        }
+
+        u.guilda = g;
+        g.usuarios.add(u);
+
+        g.save();
+        u.save();
+
+        session.put("userGuilda", g.nome);
+        flash.success("Bem vindo(a) a " + g.nome);
+
+        Usuarios.ficha();
+    }
+
+    public static void sairDaGuilda(long id) {
+        Usuario u = Usuario.find("nome = ?1", session.get("userName")).first();
+        Guilda g = Guilda.findById(id);
+
+        u.guilda = null;
+        g.usuarios.remove(u);
+
+        g.save();
+        u.save();
+
+        Usuarios.ficha();
+    }
+
     public static void detalhar(long id) {
         Guilda g = Guilda.findById(id);
         render(g);
     }
 
     public static void listar() {
-        List<Guilda> lista = Guilda.findAll();
-        render(lista);
+        List<Guilda> guildas = Guilda.findAll();
+        render(guildas);
     }
 
     public static void editar(long id) {

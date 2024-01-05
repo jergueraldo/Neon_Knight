@@ -1,6 +1,12 @@
 #{extends 'main.html' /}
 #{set title:'Ficha' /}
 
+<style>
+    a:hover {
+        color: rgba(205, 204, 204, 0.648);
+        text-decoration: none;
+    }
+</style>
 
 
 <div class="page-content page-container" id="page-content">
@@ -12,11 +18,16 @@
                         <div class="col-sm-4 bg-c-lite-green user-profile">
                             <div class="card-block text-center text-white">
                                 <div class="m-b-25">
-                                    <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius"
-                                        alt="User-Profile-Image">
+                                    <img src="/public/images/user.png" class="img-radius" alt="User-Profile-Image"
+                                        width="100px">
                                 </div>
-                                <h6 class="f-w-600">${session['userName']}</h6>
-                                <p>${session['userGuilda']}</p>
+                                <h6 class="f-w-600">${u?.nome}</h6>
+                                #{if u.guilda}
+                                <p>Guilda: ${u?.guilda?.nome}</p>
+                                <button class="btn bg-c-lite-green"><a href="@{Guildas.sairDaGuilda(u.guilda.id)}">sair
+                                        da
+                                        guilda</a></button> #{/if}
+
                             </div>
                         </div>
                         <div class="col-sm-8">
@@ -25,11 +36,11 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Email</p>
-                                        <h6 class="text-muted f-w-400">${session['userEmail']}</h6>
+                                        <h6 class="text-muted f-w-400">${u?.email}</h6>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Pontuação</p>
-                                        <h6 class="text-muted f-w-400">1000P</h6>
+                                        <p class="m-b-10 f-w-600">Classe</p>
+                                        <h6 class="text-muted f-w-400">${u?.classe}</h6>
                                     </div>
                                 </div>
                             </div>

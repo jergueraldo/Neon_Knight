@@ -26,7 +26,8 @@ public class Usuarios extends Controller {
     }
 
     public static void ficha() {
-        render();
+        Usuario u = Usuario.find("nome = ?1", session.get("userName")).first();
+        render(u);
     }
 
     public static void salvar(@Valid Usuario u) {
@@ -46,13 +47,6 @@ public class Usuarios extends Controller {
     public static void detalhar(long id) {
         Usuario u = Usuario.findById(id);
         render(u);
-    }
-
-    public static void listar() {
-        List<Usuario> lista = Usuario.find("status <> ?1",
-                Status.INATIVO).fetch();
-
-        render(lista);
     }
 
     public static void editar(long id) {

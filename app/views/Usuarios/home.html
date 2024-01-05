@@ -38,7 +38,6 @@
     <header class="header-section" id="topo">
         <div class="header-warp">
             <div class="header-bar-warp d-flex">
-
                 <!-- site logo -->
                 <a href="#" class="site-logo">
                     <img src="/public/assets/img/logo_copy.svg" alt="">
@@ -46,14 +45,15 @@
                 <nav class="top-nav-area w-100">
                     <!-- Menu -->
                     <ul class="main-menu primary-menu">
-                        <li><a href="#">Página inicial</a></li>
-                        <li><a href="#">Listagem</a>
+                        <li><a href="@{Usuarios.home}">Home</a></li>
+                        <li><a href="@{Usuarios.ficha}">Perfil</a></li>
+                        <li><a href="#">Guilda</a>
                             <ul class="sub-menu">
-                                <li><a href="@{Usuarios.listar}">Players</a></li>
+                                <li><a href="@{Guildas.form}">Criar sua guilda</a></li>
                                 <li><a href="@{Guildas.listar}">Guildas</a></li>
                             </ul>
-                            <li><a href="@{Logins.logout}">Deslogar</a></li>
                         </li>
+                        <li><a href="@{Logins.logout}">sair</a></li>
                     </ul>
                 </nav>
             </div>
@@ -100,7 +100,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="intro-text-box text-box text-white">
-                        <div class="top-meta">Faça <a href="@{Logins.form}">Login</a></div>
+                        <div class="top-meta">Faça<a href="@{Logins.form}">Login</a></div>
                         <h3>Entre na sua conta</h3>
                         <p>O bom filho à casa torna</p>
                     </div>
@@ -127,73 +127,13 @@
                         <h2>Navegação rápida</h2>
                     </div>
                     <ul class="blog-filter">
-                        <li><a href="#Gameplay">Gameplay</a></li>
+                        <li><a href="#">Topo</a></li>
+                        <img src="/public/assets/img/sla.png" alt="" width="100px"> 
                         <li><a href="#motivação">Motivação</a></li>
                     </ul>
-                    <!-- Blog item -->
-                    <div class="blog-item">
-                        <div class="blog-thumb">
-                            <img src="/public/assets/img/blog/1.jpg" alt="">
-                        </div>
-                        <div class="blog-text text-box text-white">
-                            <div class="top-meta">11.11.18 / in <a href="">Games</a></div>
-                            <h3>The best online game is out now!</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius-mod tempor
-                                incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                                Lorem ipsum dolor sit amet, consecte-tur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.....</p>
-                        </div>
-                    </div>
-                    <!-- Blog item -->
-                    <div class="blog-item">
-                        <div class="blog-thumb">
-                            <img src="/public/assets/img/blog/2.jpg" alt="">
-                        </div>
-                        <div class="blog-text text-box text-white">
-                            <div class="top-meta">11.11.18 / in <a href="">Games</a></div>
-                            <h3>The best online game is out now!</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius-mod tempor
-                                incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                                Lorem ipsum dolor sit amet, consecte-tur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.....</p>
-                        </div>
-                    </div>
-                    <!-- Blog item -->
-                    <div class="blog-item">
-                        <div class="blog-thumb">
-                            <img src="/public/assets/img/blog/3.jpg" alt="">
-                        </div>
-                        <div class="blog-text text-box text-white">
-                            <div class="top-meta">11.11.18 / in <a href="">Games</a></div>
-                            <h3>The best online game is out now!</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius-mod tempor
-                                incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                                Lorem ipsum dolor sit amet, consecte-tur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.....</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-5 sidebar">
-                    <div id="stickySidebar">
-                        <div class="widget-item">
-                            <div class="categories-widget">
-                                <h4 class="widget-title">categories</h4>
-                                <ul>
-                                    <li><a href="">Games</a></li>
-                                    <li><a href="">Gaming Tips & Tricks</a></li>
-                                    <li><a href="">Online Games</a></li>
-                                    <li><a href="">Team Games</a></li>
-                                    <li><a href="">Community</a></li>
-                                    <li><a href="">Uncategorized</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="widget-item">
-                            <img src="/public/assets/img/sla.png" alt="" width="500px">
-                        </div>
-                    </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <!-- Blog section end -->
@@ -202,12 +142,12 @@
     <!-- Intro section -->
     <section class="intro-video-section set-bg d-flex align-items-end " data-setbg="/public/assets/img/fundo.jpg"
         id="Gameplay">
-        <a href="https://www.youtube.com/watch?v=uFsGy5x_fyQ" class="video-play-btn video-popup"><img
+        <a href="https://www.youtube.com/watch?v=xlNFVNbitCw" class="video-play-btn video-popup"><img
                 src="/public/assets/img/icons/solid-right-arrow.png" alt="#"></a>
         <div class="container">
             <div class="video-text">
-                <h2>Gameplay</h2>
-                <p>Por enquanto vai ser um vídeo aleatório :D</p>
+                <h2>Inspiração</h2>
+                <p>JOJO na kimi wa bouken</p>
             </div>
         </div>
     </section>
