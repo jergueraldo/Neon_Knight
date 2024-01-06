@@ -1,7 +1,5 @@
 #{extends 'main.html' /}
-#{set title:'Ficha' /}
-
-
+#{set title:'Detalhar' /}
 
 <style>
     a:hover {
@@ -19,10 +17,7 @@
             <label for="chk" aria-hidden="true">Ficha</label>
             <input type="text" disabled placeholder="${u?.nome}">
             <input type="text" disabled placeholder="${u?.email}">
-            <input type="text" disabled placeholder="${u?.classe?.nome}">
-            <input type="text" disabled placeholder="${u?.classe?.estilo}">
-            <button><a href="@{Usuarios.editar(u.id)}">editar</a></button>
-            <button><a href="@{Usuarios.remover(u.id)}">Excluir</a></button>
+            <input type="text" disabled placeholder="${u?.classe}">
 
         </div>
 
@@ -33,8 +28,7 @@
             <label for="chk" aria-hidden="true">Guilda</label>
             <input type="text" disabled placeholder="${u?.guilda?.nome}">
             <textarea cols="50" rows="10" disabled>${u?.guilda?.matriz}</textarea>
-            <button><a href="@{Guildas.sairDaGuilda(u.guilda.id)}">Desertar</a></button>
-        </div>
+        </div>  
     </div>
     #{/if}
 

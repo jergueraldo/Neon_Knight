@@ -5,7 +5,7 @@ import play.mvc.Controller;
 
 public class Secure extends Controller {
 
-    @Before(unless = { "Usuarios.form", "Usuarios.salvar" })
+    @Before
     static void isLogado() {
         if (!session.contains("userName")) {
             flash.error("Realize login");

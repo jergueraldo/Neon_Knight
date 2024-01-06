@@ -1,7 +1,9 @@
 package controllers;
 
+import java.util.Arrays;
 import java.util.List;
 
+import models.EstiloDeCombate;
 import models.Guilda;
 import models.Status;
 import models.Usuario;
@@ -13,14 +15,6 @@ import play.mvc.With;
 @With(Secure.class)
 public class Usuarios extends Controller {
 
-    public static void form() {
-        Usuario u = (Usuario) Cache.get("user");
-        Cache.clear();
-
-        List<Guilda> guildas = Guilda.findAll();
-        render(u, guildas);
-    }
-
     public static void home() {
         render();
     }
@@ -30,20 +24,6 @@ public class Usuarios extends Controller {
         render(u);
     }
 
-    public static void salvar(@Valid Usuario u) {
-
-        if (validation.hasErrors()) {
-            validation.keep();
-            flash.error("Falha ao salvar");
-            Cache.set("user", u);
-            form();
-        }
-
-        u.save();
-        flash.success("Salvo com sucesso");
-        home();
-    }
-
     public static void detalhar(long id) {
         Usuario u = Usuario.findById(id);
         render(u);
@@ -51,7 +31,8 @@ public class Usuarios extends Controller {
 
     public static void editar(long id) {
         Usuario u = Usuario.findById(id);
-        renderTemplate("Usuarios/form.html", u);
+        List<EstiloDeCombate> estilos = Arrays.asList(EstiloDeCombate.values());
+        renderTemplate("Logins/form.html", u, estilos);
     }
 
     public static void remover(long id) {

@@ -9,7 +9,7 @@
 'use strict';
 
 
-$(window).on('load', function() {
+$(window).on('load', function () {
 	/*------------------
 		Preloder
 	--------------------*/
@@ -18,21 +18,16 @@ $(window).on('load', function() {
 
 });
 
-(function($) {
+(function ($) {
 	/*------------------
 		Navigation
 	--------------------*/
-	$('.primary-menu').slicknav({
-		appendTo:'.header-warp',
-		closedSymbol: '<i class="fa fa-angle-down"></i>',
-		openedSymbol: '<i class="fa fa-angle-up"></i>'
-	});
-
+	
 
 	/*------------------
 		Background Set
 	--------------------*/
-	$('.set-bg').each(function() {
+	$('.set-bg').each(function () {
 		var bg = $(this).data('setbg');
 		$(this).css('background-image', 'url(' + bg + ')');
 	});
@@ -51,16 +46,16 @@ $(window).on('load', function() {
 		animateOut: 'fadeOut',
 		animateIn: 'fadeIn',
 		items: 1,
-		//autoplay: true,
+		autoplay: true,
 		autoplayTimeout: 10000,
 	});
 
 	var dot = $('.hero-slider .owl-dot');
-	dot.each(function() {
+	dot.each(function () {
 		var index = $(this).index() + 1;
-		if(index < 10){
+		if (index < 10) {
 			$(this).html('0').append(index + '.');
-		}else{
+		} else {
 			$(this).html(index + '.');
 		}
 	});
@@ -71,12 +66,12 @@ $(window).on('load', function() {
 		Video Popup
 	--------------------*/
 	$('.video-popup').magnificPopup({
-  		type: 'iframe'
+		type: 'iframe'
 	});
 
 	$('#stickySidebar').stickySidebar({
-	    topSpacing: 60,
-	    bottomSpacing: 60
+		topSpacing: 60,
+		bottomSpacing: 60
 	});
 
 

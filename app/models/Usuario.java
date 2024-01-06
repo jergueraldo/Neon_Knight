@@ -15,12 +15,12 @@ public class Usuario extends Model {
     @Required
     public String nome, senha, email;
 
-    @Required
-    @Enumerated(EnumType.STRING)
+    @ManyToOne
+    @JoinColumn(name = "Usuario_id_Classe")
     public Classe classe;
 
     @ManyToOne
-    @JoinColumn(name = "Usuario_id")
+    @JoinColumn(name = "Usuario_id_Guilda")
     public Guilda guilda;
 
     @Enumerated(EnumType.STRING)

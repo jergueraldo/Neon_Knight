@@ -30,7 +30,7 @@ public class Guildas extends Controller {
 
         g.save();
         flash.success(g.nome + " salva com sucesso");
-        Usuarios.form();
+        Logins.form();
     }
 
     public static void entrarNaGuilda(long id) {

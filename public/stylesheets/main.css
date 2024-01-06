@@ -1,3 +1,7 @@
+    body {
+        background: linear-gradient(to bottom, #0F0C29, #302B63, #24243E);
+    }
+
     .containerForm {
         border: solid 1px;
         width: 500px;

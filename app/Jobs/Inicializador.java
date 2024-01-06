@@ -2,6 +2,7 @@ package Jobs;
 
 import models.Adm;
 import models.Classe;
+import models.EstiloDeCombate;
 import models.Guilda;
 import models.Usuario;
 import play.jobs.Job;
@@ -13,6 +14,48 @@ public class Inicializador extends Job {
     @Override
     public void doJob() throws Exception {
         if (Usuario.count() == 0) {
+
+            // Magico
+            Classe c1 = new Classe("Mago", EstiloDeCombate.Mágico);
+            Classe c2 = new Classe("sorcerer", EstiloDeCombate.Mágico);
+            Classe c3 = new Classe("Necromante ", EstiloDeCombate.Mágico);
+
+            // meele
+            Classe c4 = new Classe("Guerreiro", EstiloDeCombate.Combatente);
+            Classe c5 = new Classe("Paladino", EstiloDeCombate.Combatente);
+            Classe c6 = new Classe("Bárbaro", EstiloDeCombate.Combatente);
+
+            // sup
+            Classe c7 = new Classe("healer", EstiloDeCombate.Suporte);
+            Classe c8 = new Classe("Xamã", EstiloDeCombate.Suporte);
+            Classe c9 = new Classe("bard", EstiloDeCombate.Suporte);
+
+            // range
+            Classe c10 = new Classe("Arqueiro", EstiloDeCombate.Longo_Alcance);
+            Classe c11 = new Classe("Caçador", EstiloDeCombate.Longo_Alcance);
+            Classe c12 = new Classe("sniper", EstiloDeCombate.Longo_Alcance);
+
+            // Ladino
+            Classe c13 = new Classe("Ladrão", EstiloDeCombate.Ladino);
+            Classe c14 = new Classe("Ladino", EstiloDeCombate.Ladino);
+            Classe c15 = new Classe("Assasino", EstiloDeCombate.Ladino);
+
+            c1.save();
+            c2.save();
+            c3.save();
+            c4.save();
+            c5.save();
+            c6.save();
+            c7.save();
+            c8.save();
+            c9.save();
+            c10.save();
+            c11.save();
+            c12.save();
+            c13.save();
+            c14.save();
+            c15.save();
+
             Usuario adm = new Usuario();
             adm.nome = "adm";
             adm.email = "adm@adm.com";
@@ -23,63 +66,62 @@ public class Inicializador extends Job {
             user1.nome = "user1";
             user1.email = "user1@user1.com";
             user1.senha = "12345";
-            user1.classe = Classe.MAGE;
+            user1.classe = c1;
             user1.save();
 
             Usuario user2 = new Usuario();
             user2.nome = "user2";
             user2.email = "user2@user2.com";
             user2.senha = "12345";
-            user2.classe = Classe.MAGE;
+            user2.classe = c2;
             user2.save();
 
             Usuario user3 = new Usuario();
             user3.nome = "user3";
             user3.email = "user3@user3.com";
             user3.senha = "12345";
-            user3.classe = Classe.MAGE;
+            user3.classe = c3;
             user3.save();
 
             Usuario user4 = new Usuario();
             user4.nome = "user4";
             user4.email = "user4@user4.com";
             user4.senha = "12345";
-            user4.classe = Classe.WARRIOR;
+            user4.classe = c4;
             user4.save();
 
             Usuario user5 = new Usuario();
             user5.nome = "user5";
             user5.email = "user5@user5.com";
             user5.senha = "12345";
-            user5.classe = Classe.WARRIOR;
+            user5.classe = c5;
             user5.save();
 
             Usuario user6 = new Usuario();
             user6.nome = "user6";
             user6.email = "user6@user6.com";
             user6.senha = "12345";
-            user6.classe = Classe.WARRIOR;
+            user6.classe = c6;
             user6.save();
 
             Usuario user7 = new Usuario();
             user7.nome = "user7";
             user7.email = "user7@user7.com";
             user7.senha = "12345";
-            user7.classe = Classe.HEALER;
+            user7.classe = c7;
             user7.save();
 
             Usuario user8 = new Usuario();
             user8.nome = "user8";
             user8.email = "user8@user8.com";
             user8.senha = "12345";
-            user8.classe = Classe.HEALER;
+            user8.classe = c8;
             user8.save();
 
             Usuario user9 = new Usuario();
             user9.nome = "user9";
             user9.email = "user9@user9.com";
             user9.senha = "12345";
-            user9.classe = Classe.HEALER;
             user9.save();
 
             Guilda gui = new Guilda();
