@@ -1,0 +1,17 @@
+body {
+    background-image: url(/public/assets/img/bkg-login.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+main {
+    height: 100vh;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-section{
+    
+}

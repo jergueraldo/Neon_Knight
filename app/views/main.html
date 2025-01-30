@@ -34,6 +34,7 @@
         <link rel="stylesheet" href="/public/assets/css/owl.carousel.min.css" />
         <link rel="stylesheet" href="/public/assets/css/magnific-popup.css" />
         <link rel="stylesheet" href="/public/assets/css/animate.css" />
+        <link rel="stylesheet" href="/public/stylesheets/main.css">
 
 
         <!--[if lt IE 9]>
@@ -59,9 +60,15 @@
                                 </a>
                                 <nav class="top-nav-area w-100">
                                         <!-- Menu -->
-                                        #{if session["userName"] }
                                         <ul class="main-menu primary-menu">
                                                 <li><a href="@{Usuarios.home}">Home</a></li>
+                                                <li><a href="#">Sign</a>
+                                                        <ul class="sub-menu">
+                                                                <li><a href="@{Usuarios.form}">Sign-up</a></li>
+                                                                <li><a href="@{Logins.form}">Sign-in</a></li>
+                                                        </ul>
+                                                </li>
+                                                #{if session["userName"] }
                                                 <li><a href="#">Guildas</a>
                                                         <ul class="sub-menu">
                                                                 <li><a href="@{Guildas.form}">Criar nova</a></li>
@@ -69,8 +76,8 @@
                                                         </ul>
                                                 </li>
                                                 <li><a href="@{Logins.logout}">sair</a></li>
+                                                #{/if}
                                         </ul>
-                                        #{/if}
                                 </nav>
                         </div>
                 </div>
@@ -78,12 +85,12 @@
         <!-- Header section end -->
 
         <!-- Page top section -->
-        <section class="page-top-section set-bg" data-setbg="img/page-top-bg/1.jpg">
+        <!-- <section class="page-top-section set-bg" data-setbg="img/page-top-bg/1.jpg">
                 <div class="page-info">
                         <h2>Games</h2>
                 </div>
-        </section>
-        <!-- Page top end-->
+        </section> -->
+        <!-- Page top end -->
 
         <!-- Hero section -->
         <section class="hero-section overflow-hidden">
@@ -110,10 +117,12 @@
 
                 </figure>
                 #{/if}
-                #{doLayout /}
         </section>
         <!-- Hero section end-->
 
+        <main>
+                #{doLayout /}
+        </main>
 
         <!-- Footer section -->
         <footer class="footer-section">

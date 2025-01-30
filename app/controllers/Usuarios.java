@@ -7,6 +7,7 @@ import models.Status;
 import models.Usuario;
 import play.cache.Cache;
 import play.data.validation.Valid;
+import play.data.validation.Validation;
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -31,8 +32,8 @@ public class Usuarios extends Controller {
 
     public static void salvar(@Valid Usuario u) {
 
-        if (validation.hasErrors()) {
-            validation.keep();
+        if (Validation.hasErrors()) {
+            Validation.keep();
             flash.error("Falha ao salvar");
             Cache.set("user", u);
             form();
