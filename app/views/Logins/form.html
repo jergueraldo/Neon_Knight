@@ -1,7 +1,6 @@
 #{extends 'main.html' /}
 #{set title:'Login' /}
 
-<link rel="stylesheet" href="/public/stylesheets/login.css">
 
 <div class="containerForm">
     <h2>Login</h2><br>
@@ -14,8 +13,10 @@
             <label for="exampleInputPassword1" class="form-label">Senha</label>
             <input type="password" class="form-control" id="exampleInputPassword1" name="senha">
         </div>
+
         <button type="submit" class="btn btn-primary">Logar</button>
 
-        <a href="@{Usuarios.form}">Cadastrar</a>
+
+        <span class="link-span"><a href="@{Usuarios.form}">Cadastrar-se</a></span>
     </form>
 </div>

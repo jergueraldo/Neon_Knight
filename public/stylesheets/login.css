@@ -12,6 +12,49 @@ main {
     justify-content: center;
 }
 
-.footer-section{
-    
+
+.containerForm {
+    width: 500px;
+    position: relative;
+    padding: 2em;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.329);
+    backdrop-filter: blur(5px);
+}
+
+.containerForm h2 {
+    color: #320D38;
+    cursor: default;
+}
+
+.containerForm input {
+    border: none;
+    outline: none;
+    box-shadow: 0 0 5px black;
+}
+
+.containerForm input:focus {
+    box-shadow: 0 0 5px #320D38;
+}
+
+.containerForm .btn-primary {
+    background-color: #320D38;
+    transition: all ease-in-out .3s;
+    outline: none;
+    border: none;
+    width: 10rem;
+}
+
+.containerForm .btn-primary:hover {
+    box-shadow: 0 0 10px purple;
+}
+
+.containerForm .link-span {
+    position: absolute;
+    right: 1.5rem;
+    bottom: 2rem;
+}
+
+.containerForm .link-span a {
+    color: purple;
 }
