@@ -91,7 +91,30 @@
 
         <main>
                 <div class="notifications">
-                        
+                        #{if flash["info"]}
+                        <div class="alert alert-primary" role="alert">
+                                ${flash["info"]}
+                        </div>
+                        #{/if}
+
+                        #{if flash.success}
+                        <div class="alert alert-success" role="alert">
+                                ${flash.success}
+                        </div>
+                        #{/if}
+
+                        #{if flash.error}
+                        <div class="alert alert-danger" role="alert">
+                                ${flash.error}
+                        </div>
+                        #{/if}
+
+                        #{if flash["warning"]}
+                        <div class="alert alert-warning" role="alert">
+                                ${flash["warning"]}
+                        </div>
+                        #{/if}
+
                 </div>
                 #{doLayout /}
         </main>

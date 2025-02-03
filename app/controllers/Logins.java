@@ -12,47 +12,11 @@ public class Logins extends Controller {
         render();
     }
 
-    private static void criarTeste() {
-        Guilda guildaUser = null;
-        if (Guilda.count() == 0) {
-            Guilda gui = new Guilda();
-            gui.nome = "blue";
-            gui.historia = "sla";
-            gui.save();
-
-            Guilda gui2 = new Guilda();
-            gui2.nome = "red";
-            gui2.historia = "sla2";
-            gui2.save();
-
-            Guilda gui3 = new Guilda();
-            gui3.nome = "yellow";
-            gui3.historia = "sla3";
-            gui3.save();
-
-            guildaUser = gui;
-
-        }
-
-        if (Usuario.count() == 0) {
-            Usuario adm = new Usuario();
-            adm.nome = "adm";
-            adm.email = "adm@adm.com";
-            adm.senha = "12345";
-            adm.guilda = guildaUser;
-            adm.save();
-        }
-        Usuarios.home();
-    }
-
     public static void login(String email, String senha) {
-        Usuario user = Usuario.find("email = ?1 and senha = ?2", email, senha).first();
+        Usuario user = Usuario.find("email = ?1 and senha = ?2 and status =?3", email, senha, Status.ATIVO).first();
 
-        if (user == null && email.equals("adm@adm") && senha.equals("adm")) {
-            flash.success("Deu certo");
-            criarTeste();
-        } else if (user == null || user.status == Status.INATIVO) {
-            flash.error("Senha e/ou email incorreto(s)");
+        if (user == null) {
+            flash.error("Email e/ou senha incorreto(s)");
             form();
         }
 
@@ -67,9 +31,9 @@ public class Logins extends Controller {
     public static void logout() {
 
         if (!session.contains("user")) {
-            flash.error("Nínguem logado");
+            flash.put("warning", "Nínguem logado");
         } else {
-            flash.success(session.get("userName") + " delosgou");
+            flash.success("Usuário deslogado");
         }
 
         session.clear();
