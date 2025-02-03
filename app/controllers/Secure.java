@@ -8,7 +8,7 @@ public class Secure extends Controller {
     @Before(unless = {"Usuarios.form", "Usuarios.salvar"})  
     static void isLogado() {
         if (!session.contains("userName")) {
-            flash.error("Realize login");
+            flash.put("warning","É necessário ter feito login");
             Logins.form();
         }
     }

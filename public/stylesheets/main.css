@@ -5,6 +5,10 @@
 :root {
     --primary: rgba(0, 0, 255, 0.507);
     --second: rgba(0, 0, 255, 0.705);
+    --alert-success: #29ee02;
+    --alert-primary: #9bb4ff;
+    --alert-warning: #ffd700;
+    --alert-danger: #ff0000;
 }
 
 body {
@@ -27,28 +31,68 @@ main {
     width: 100%;
 }
 
+
+/* ----------------- 
+        Alerts
+-------------------*/
 .notifications {
     width: max-content;
     position: absolute;
-    top: 0;
     z-index: 9;
-    top: 20%;
-    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1rem;
     display: flex;
     flex-direction: column;
+}
+
+.notifications ion-icon {
+    height: 2rem;
+    width: 2rem;
 }
 
 .alert {
     font-size: 1.3rem;
     position: relative;
-    border: 1px solid;
-    box-shadow: -15px 8px 10px rgba(0, 0, 0, 0.336);
     transition: all ease-in-out .3s;
     cursor: default;
     pointer-events: none;
     opacity: 0;
     animation: hide 5s linear;
+    height: 100%;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
 }
+
+
+.notifications .alert-success {
+    color: var(--alert-success);
+    box-shadow: 0 0 10px 5px var(--alert-success);
+}
+
+.notifications .alert-primary {
+    color: var(--alert-primary);
+    box-shadow: 0 0 10px 5px var(--alert-primary);
+
+}
+
+.notifications .alert-warning {
+    color: var(--alert-warning);
+    box-shadow: 0 0 10px 5px var(--alert-warning);
+
+}
+
+.notifications .alert-danger {
+    color: var(--alert-danger);
+    box-shadow: 0 0 10px 3px var(--alert-danger);
+
+}
+
 
 @keyframes hide {
 
@@ -62,6 +106,9 @@ main {
     }
 }
 
+/* ----------------- 
+    END
+-------------------*/
 .central {
     width: inherit;
     height: inherit;

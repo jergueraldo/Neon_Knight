@@ -274,7 +274,7 @@ ol {
 ---------------------*/
 
 .header-section {
-	position: absolute;
+	position: fixed;
 	width: 100%;
 	left: 0;
 	top: 0;
@@ -331,6 +331,7 @@ ol {
 	padding: 39px 40px 0;
 	-webkit-box-shadow: 0 0 9px 3px rgba(226, 30, 228, 0.24);
 	box-shadow: 0 0 9px 3px rgba(226, 30, 228, 0.24);
+	position: relative;
 }
 
 .site-logo {
@@ -1014,18 +1015,18 @@ ol {
 
 .footer-section .container {
 	position: relative;
-	padding: 60px 15px 25px;
+	padding: 60px 15px;
 }
 
 .footer-left-pic {
 	position: absolute;
-	left: -13px;
+	left: 7rem;
 	bottom: 19px;
 }
 
 .footer-right-pic {
 	position: absolute;
-	right: 50px;
+	right: 4rem;
 	bottom: 19px;
 }
 
@@ -1629,11 +1630,11 @@ ol {
 	}
 
 	.footer-right-pic {
-		right: 15px;
+		right: -8rem;
 	}
 
 	.footer-left-pic {
-		left: -44px;
+		left: -8rem;
 	}
 
 	.game-filter {
