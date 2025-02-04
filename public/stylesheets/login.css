@@ -54,6 +54,8 @@ main {
     position: absolute;
     right: 1.5rem;
     bottom: 2rem;
+    display: flex;
+    gap: 5px;
 }
 
 .containerForm .link-span a {

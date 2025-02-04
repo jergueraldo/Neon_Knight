@@ -1,70 +1,26 @@
 #{extends 'main.html' /}
 #{set title:'Form' /}
 
-<section class="vh-100 bg-image">
-    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-        <div class="container h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                    <div class="card" style="border-radius: 15px;">
-                        <div class="card-body p-5">
-                            <h2 class="text-uppercase text-center mb-5">Criando conta</h2>
+<div class="containerForm">
+    <h1>Cadastro</h1>
+    <form action="@{Usuarios.salvar}" method="post">
 
-                            <form action="@{Usuarios.salvar}" method="post">
-
-                                <input type="hidden" name="u.id">
-
-                                
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example1cg">Nome</label>  <span class="red">#{error 'u.nome' /}</span>
-                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg"
-                                        name="u.nome" value="${u?.nome}" />
-                                </div>
-
-                                
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example3cg">Email</label> <span class="red"> #{error 'u.email' /}</span>
-                                    <input type="email" id="form3Example3cg" class="form-control form-control-lg"
-                                        name="u.email" value="${u?.email}" />
-                                </div>
-
-                                
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example4cg">Senha</label> <span class="red"> #{error 'u.senha' /}</span>
-                                    <input type="password" id="form3Example4cg" class="form-control form-control-lg"
-                                        name="u.senha" value="${u?.senha}" />
-                                </div>
-
-                                <label>Guilda</label>
-                                #{select 'u.guilda.id',
-                                value:u?.guilda?.id}
-
-                                #{list items:guildas, as:'g'}
-
-                                #{option g.id}
-                                ${g.nome}
-                                #{/option}
-
-                                #{/list}
-
-                                #{/select}
-
-                                <br><br>
-
-                                <div class="d-flex justify-content-center">
-                                    <button type="submit"
-                                        class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Registrar</button>
-                                </div>
-
-                                <p class="text-center text-muted mt-5 mb-0">Já tem conta? <a href="@{Logins.form}"
-                                        class="fw-bold text-body"><u>Clique aqui</u></a></p>
-
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <input type="hidden" name="u.id" value="${u?.id}">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nome</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="u.nome" value="${u?.nome}">
         </div>
-    </div>
-</section>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="u.email" value="${u?.email}">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Senha</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="u.senha">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Cadastrar-se</button>
+
+        <span class="link-span">Já tem uma conta?<a href="@{Logins.form}">Clique aqui!</a></span>
+    </form>
+</div>
