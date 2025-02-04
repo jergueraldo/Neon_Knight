@@ -62,11 +62,9 @@
                                         <!-- Menu -->
                                         <ul class="main-menu primary-menu">
 
-                                                #{if session["userName"]}
+                                                #{if session["user"]}
                                                 <li><a href="@{Usuarios.home}">Home</a></li>
-                                                #{/if}
 
-                                                #{if session["userName"] }
                                                 <li><a href="#">Guildas</a>
                                                         <ul class="sub-menu">
                                                                 <li><a href="@{Guildas.form}">Criar nova</a></li>

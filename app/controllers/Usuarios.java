@@ -2,6 +2,7 @@ package controllers;
 
 import java.util.List;
 
+import models.Cargo;
 import models.Guilda;
 import models.Status;
 import models.Usuario;
@@ -34,13 +35,13 @@ public class Usuarios extends Controller {
 
         if (Validation.hasErrors()) {
             Validation.keep();
-            flash.error("Falha ao salvar");
+            flash.error("Falha no cadastro. Por favor, verefique tudo com cuidado");
             Cache.set("user", u);
             form();
         }
 
         u.save();
-        flash.success("Salvo com sucesso");
+        flash.success("Cadastrado com sucesso");
         home();
     }
 
@@ -54,6 +55,18 @@ public class Usuarios extends Controller {
                 Status.INATIVO).fetch();
 
         render(lista);
+    }
+
+    public static void elevarParaAdm(String senha) {
+        if (!session.contains("user")) {
+            flash.put("warning", "Login necessário!");
+            ficha();
+        }
+        Usuario u = Usuario.findById(session.get("user"));
+        u.cargo = Cargo.ADMINISTRADOR;
+        u.save();
+        flash.success("Parabens, agora você é ADM");
+        ficha();
     }
 
     public static void editar(long id) {

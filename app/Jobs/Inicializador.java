@@ -2,7 +2,6 @@ package Jobs;
 
 import javax.validation.Valid;
 
-import models.Adm;
 import models.Guilda;
 import models.Usuario;
 import play.jobs.Job;

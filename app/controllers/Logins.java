@@ -20,10 +20,7 @@ public class Logins extends Controller {
             form();
         }
 
-        session.put("userName", user.nome);
-        session.put("userEmail", user.email);
-        session.put("userGuilda", user.guilda.nome);
-        session.put("user", user);
+        session.put("user", user.id);
         flash.success("Bem vindo " + user.nome);
         Usuarios.home();
     }
@@ -33,7 +30,7 @@ public class Logins extends Controller {
         if (!session.contains("user")) {
             flash.put("warning", "Nínguem logado");
         } else {
-            flash.success("Usuário deslogado");
+            flash.put("info", "Usuário deslogado");
         }
 
         session.clear();

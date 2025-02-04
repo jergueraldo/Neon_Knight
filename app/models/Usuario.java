@@ -10,6 +10,7 @@ import play.db.jpa.Model;
 
 @Entity
 public class Usuario extends Model {
+    private static String password = "adm123";
 
     @Required
     public String nome, senha, email;
@@ -20,8 +21,20 @@ public class Usuario extends Model {
     @Enumerated(EnumType.STRING)
     public Status status;
 
+    @Enumerated(EnumType.STRING)
+    public Cargo cargo;
+
     public Usuario() {
         this.status = Status.ATIVO;
+        this.cargo = Cargo.USUARIO;
+    }
+
+    public boolean elevarParaAdm(String senha) {
+        if (senha.equals(password)) {
+            this.cargo = Cargo.ADMINISTRADOR;
+            return true;
+        }
+        return false;
     }
 
 }
