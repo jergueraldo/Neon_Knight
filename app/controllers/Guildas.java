@@ -51,7 +51,7 @@ public class Guildas extends Controller {
         Guilda g = Guilda.findById(id);
         flash.success(g.nome + " removido com sucesso");
         g.delete();
-        Usuarios.home();
+        Application.home();
 
     }
 }

@@ -47,13 +47,20 @@
                     <!-- Menu -->
                     <ul class="main-menu primary-menu">
                         <li><a href="#">Página inicial</a></li>
+
+                        #{ifnot session["user"]}
+                        <li><a href="@{Usuarios.form}">Cadastro</a></li>
+                        <li><a href="@{Logins.form}">Login</a></li>
+                        #{/ifnot}
+
+                        #{if session["user"]}
                         <li><a href="#">Listagem</a>
                             <ul class="sub-menu">
                                 <li><a href="@{Usuarios.listar}">Players</a></li>
                                 <li><a href="@{Guildas.listar}">Guildas</a></li>
                             </ul>
-                            <li><a href="@{Logins.logout}">Deslogar</a></li>
-                        </li>
+                        <li><a href="@{Logins.logout}">Deslogar</a></li>
+                        #{/if}
                     </ul>
                 </nav>
             </div>
@@ -67,20 +74,9 @@
         <div class="hero-slider owl-carousel">
             <div class="hero-item set-bg d-flex align-items-center justify-content-center text-center"
                 data-setbg="/public/assets/img/slider_bg1.jpg">
-                <div class="container">
-                    <h2>Jogue conosco!</h2>
-                    <p>Venha se divertir</p>
-                    <a href="#" class="site-btn">Juntar-se<img src="/public/assets/img/icons/double-arrow.png"
-                            alt="#" /></a>
-                </div>
             </div>
             <div class="hero-item set-bg d-flex align-items-center justify-content-center text-center"
                 data-setbg="/public/assets/img/slider-bg2.jpg">
-                <div class="container">
-                    <h2>Game on!</h2>
-                    <a href="#" class="site-btn">Jogar <img src="/public/assets/img/icons/double-arrow.png"
-                            alt="#" /></a>
-                </div>
             </div>
         </div>
     </section>
@@ -124,16 +120,21 @@
             <div class="row">
                 <div class="col-xl-9 col-lg-8 col-md-7">
                     <div class="section-title text-white">
-                        <h2>Navegação rápida</h2>
+                        <h2>Galeria</h2>
                     </div>
-                    <ul class="blog-filter">
-                        <li><a href="#Gameplay">Gameplay</a></li>
-                        <li><a href="#motivação">Motivação</a></li>
-                    </ul>
                     <!-- Blog item -->
                     <div class="blog-item">
                         <div class="blog-thumb">
-                            <img src="/public/assets/img/blog/1.jpg" alt="">
+                            <img src="/public//assets/img/Fantasy1.jfif" alt="">
+                        </div>
+                        <div class="blog-text text-box text-white">
+                            <h3>Mundos fantásticos</h3>
+                        </div>
+                    </div>
+                    <!-- Blog item -->
+                    <div class="blog-item">
+                        <div class="blog-thumb">
+                            <img src="/public//assets/img/Fantasy2.jfif" alt="">
                         </div>
                         <div class="blog-text text-box text-white">
                             <div class="top-meta">11.11.18 / in <a href="">Games</a></div>
@@ -147,7 +148,7 @@
                     <!-- Blog item -->
                     <div class="blog-item">
                         <div class="blog-thumb">
-                            <img src="/public/assets/img/blog/2.jpg" alt="">
+                            <img src="/public//assets/img/Fantasy3.jfif" alt="">
                         </div>
                         <div class="blog-text text-box text-white">
                             <div class="top-meta">11.11.18 / in <a href="">Games</a></div>
@@ -161,7 +162,21 @@
                     <!-- Blog item -->
                     <div class="blog-item">
                         <div class="blog-thumb">
-                            <img src="/public/assets/img/blog/3.jpg" alt="">
+                            <img src="/public//assets/img/Fantasy4.jfif" alt="">
+                        </div>
+                        <div class="blog-text text-box text-white">
+                            <div class="top-meta">11.11.18 / in <a href="">Games</a></div>
+                            <h3>The best online game is out now!</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius-mod tempor
+                                incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+                                Lorem ipsum dolor sit amet, consecte-tur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua.....</p>
+                        </div>
+                    </div>
+                    <!-- Blog item -->
+                    <div class="blog-item">
+                        <div class="blog-thumb">
+                            <img src="/public//assets/img/Fantasy5.jfif" alt="">
                         </div>
                         <div class="blog-text text-box text-white">
                             <div class="top-meta">11.11.18 / in <a href="">Games</a></div>
@@ -202,12 +217,9 @@
     <!-- Intro section -->
     <section class="intro-video-section set-bg d-flex align-items-end " data-setbg="/public/assets/img/fundo.jpg"
         id="Gameplay">
-        <a href="https://www.youtube.com/watch?v=uFsGy5x_fyQ" class="video-play-btn video-popup"><img
-                src="/public/assets/img/icons/solid-right-arrow.png" alt="#"></a>
         <div class="container">
             <div class="video-text">
-                <h2>Gameplay</h2>
-                <p>Por enquanto vai ser um vídeo aleatório :D</p>
+                <h2>Chame os amigos</h2>
             </div>
         </div>
     </section>
@@ -249,7 +261,7 @@
             <ul class="main-menu footer-menu">
             </ul>
             <div class="footer-social d-flex justify-content-center">
-                <a href="#topo" style="font-size: 10em;"><ion-icon name="arrow-up-circle-outline"></ion-icon></a>
+                <a href="#" style="font-size: 10em;"><ion-icon name="arrow-up-circle-outline"></ion-icon></a>
             </div>
 
             <div class="copyright"><a href="">Colorlib</a> 2018 @ All rights reserved</div>

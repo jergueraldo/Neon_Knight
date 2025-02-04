@@ -23,9 +23,7 @@ public class Usuarios extends Controller {
         render(u, guildas);
     }
 
-    public static void home() {
-        render();
-    }
+
 
     public static void ficha() {
         render();
@@ -42,7 +40,7 @@ public class Usuarios extends Controller {
 
         u.save();
         flash.success("Cadastrado com sucesso");
-        home();
+        Application.home();
     }
 
     public static void detalhar(long id) {

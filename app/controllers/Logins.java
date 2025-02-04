@@ -22,7 +22,7 @@ public class Logins extends Controller {
 
         session.put("user", user.id);
         flash.success("Bem vindo " + user.nome);
-        Usuarios.home();
+        Application.home();
     }
 
     public static void logout() {

@@ -683,6 +683,10 @@ ol {
 	margin-top: 86px;
 }
 
+.blog-item img {
+height: 25rem;
+}
+
 .blog-item .blog-thumb {
 	width: 362px;
 	float: left;
